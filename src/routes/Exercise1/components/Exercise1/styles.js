@@ -34,3 +34,8 @@ text-align: center;
 font-size: 30px;
 border-radius: 15px;`
 
+export const Instructions = styled.p`
+opacity: 0;
+transform: rotateY(-90deg);
+transition: all 0.5s cubic-bezier(.36,-0.64,.34,1.76);
+`
