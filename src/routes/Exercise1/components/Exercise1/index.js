@@ -15,18 +15,23 @@ export default class Exercise1 extends Component {
     this.handleClick = this.handleClick.bind(this);   
   }
 
-  handleClick() {
+  handleClick(action) {
     const { count } = this.state
+    console.log(action)
     if (count <= 4){
       this.setState({
         textContent : 'Clicca per creare un mattoncino',
         count : ++this.state.count 
       })
+      
+      action()
+      
       console.log(count)
     }
   }
   
   render () {
+    const { favetti, merdaAction } = this.props
     const { count, textContent } = this.state
     const secondClick = count > 1
     const thirdClick =  count > 2
@@ -34,13 +39,13 @@ export default class Exercise1 extends Component {
 
   return (
     <Wrap secondClick>    
-    {!secondClick && <MainButton onClick={this.handleClick}>{textContent}</MainButton>}
+    {!secondClick && <MainButton onClick={this.handleClick(merdaAction)}>{textContent}</MainButton>}
     {secondClick && 
       <div>
-        <p>Passa col mouse sul mattoncino per farlo ruotare, cliccaci sopra per crearne un altro</p>
+        <p>{favetti}</p>
         <Brick onClick={this.handleClick}>M</Brick>
       </div>}
-      {thirdClick && <SecondBlock count={count} click={() => this.handleClick()}/>}
+      {thirdClick && <SecondBlock count={count} click={() => this.handleClick(merdaAction)}/>}
 
     
       </Wrap>
@@ -49,14 +54,12 @@ export default class Exercise1 extends Component {
 }
 
 
-const SecondBlock = (prop) => {
-  const { count, click } = prop
+import {text} from './text'
+
+const SecondBlock = (props) => {
+  const { count, click } = props
   const thirdClick =  count < 4
   const fourthClick = count > 3
-  const text = {
-    text1 : 'Questo invece si espande, clicca anche su questo',
-    text2 : 'Questo invece si muove'
-  }
 
   return (
     <SecondWrap>

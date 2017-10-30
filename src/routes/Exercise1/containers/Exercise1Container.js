@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -13,10 +14,11 @@ import Exercise1 from '../components/Exercise1/index'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
+    merdaAction : () => merdaAction(),
 }
 
 const mapStateToProps = (state) => ({
-  exercise1 : state.exercise1
+    favetti : state.exercise1.favetti
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

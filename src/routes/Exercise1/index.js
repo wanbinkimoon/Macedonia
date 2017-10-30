@@ -10,7 +10,7 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Exercise1 = require('./containers/Exercise1Container').default
-      const reducer = require('./modules/exercise1').default
+      const reducer = require('./modules/Exercise1').default
 
       /*  Add the reducer to the store on key 'counter'  */
       injectReducer(store, { key: 'exercise1', reducer })

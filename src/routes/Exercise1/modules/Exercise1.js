@@ -2,6 +2,7 @@
 // Constants
 // ------------------------------------
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+export const MERDA = 'MERDA'
 
 
 // ------------------------------------
@@ -11,6 +12,13 @@ export function increment (value = 1) {
   return {
     type    : COUNTER_INCREMENT,
     payload : value
+  }
+}
+
+export function merdaAction (text = 'ohyeah') {
+  return {
+    type    : MERDA,
+    payload : text
   }
 }
 
@@ -32,22 +40,24 @@ export const doubleAsync = () => {
 }
 
 export const actions = {
-  increment,
+  merdaAction,
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
+const ACTION_HANDLERS_2 = {
+  [MERDA]    : (state, action) => state.exercise1.favetti = action.payload,
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {
+  favetti : 'Passa col mouse sul mattoncino per farlo ruotare, cliccaci sopra per crearne un altro'
+}
 export default function exercise1Reducer (state = initialState, action) {
-  const handler = ACTION_HANDLERS[action.type]
+  const handler = ACTION_HANDLERS_2[action.type]
 
   return handler ? handler(state, action) : state
 }
