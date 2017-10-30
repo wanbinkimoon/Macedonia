@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const Wrap = styled.div`
+`
+export const SecondWrap = styled.div`
+`
+
 export const MainButton = styled.button`
 background-color: #4CAF50; 
 border: none;
