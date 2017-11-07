@@ -11,6 +11,8 @@ export const PageLayout = ({ children }) => (
     <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
     {' · '}
     <Link to='/exercise1' activeClassName='page-layout__nav-item--active'>Exercise1</Link>
+    {' · '}
+    <Link to='/exercise2' activeClassName='page-layout__nav-item--active'>Exercise2</Link>
     <div className='page-layout__viewport'>
       {children}
     </div>

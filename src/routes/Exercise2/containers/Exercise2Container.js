@@ -7,7 +7,7 @@ import { createSelector } from 'reselect'
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 
-import Exercise1 from '../components/Exercise1/index'
+import Exercise2 from '../components/Exercise2/index'
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
@@ -18,7 +18,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-    favetti : state.exercise1.favetti
+    
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(Exercise1)
+export default connect(mapStateToProps, mapDispatchToProps)(Exercise2)

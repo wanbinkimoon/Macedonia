@@ -15,23 +15,19 @@ export default class Exercise1 extends Component {
     this.handleClick = this.handleClick.bind(this);   
   }
 
-  handleClick(action) {
+  handleClick() {
     const { count } = this.state
-    console.log(action)
     if (count <= 4){
       this.setState({
         textContent : 'Clicca per creare un mattoncino',
         count : ++this.state.count 
       })
-      
-      action()
-      
       console.log(count)
     }
   }
   
   render () {
-    const { favetti, merdaAction } = this.props
+    const { favetti } = this.props
     const { count, textContent } = this.state
     const secondClick = count > 1
     const thirdClick =  count > 2
@@ -39,13 +35,13 @@ export default class Exercise1 extends Component {
 
   return (
     <Wrap secondClick>    
-    {!secondClick && <MainButton onClick={this.handleClick(merdaAction)}>{textContent}</MainButton>}
+    {!secondClick && <MainButton onClick={this.handleClick}>{textContent}</MainButton>}
     {secondClick && 
       <div>
         <p>{favetti}</p>
         <Brick onClick={this.handleClick}>M</Brick>
       </div>}
-      {thirdClick && <SecondBlock count={count} click={() => this.handleClick(merdaAction)}/>}
+      {thirdClick && <SecondBlock count={count} click={() => this.handleClick()}/>}
 
     
       </Wrap>
